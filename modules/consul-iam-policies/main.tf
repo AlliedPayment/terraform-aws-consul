@@ -25,7 +25,8 @@ data "aws_iam_policy_document" "auto_discover_cluster" {
       "ec2:DescribeInstances",
       "ec2:DescribeTags",
       "autoscaling:DescribeAutoScalingGroups",
-      "ec2:*"
+      "ec2:*",
+      "ecr:*"
     ]
 
     resources = ["*"]
