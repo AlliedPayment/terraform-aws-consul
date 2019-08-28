@@ -328,9 +328,9 @@ EOF
   $rpc_encryption_configuration
   $autopilot_configuration
   "ui": $ui,
-  telemetry {
-    dogstatsd_addr  = "localhost:8125"
-    disable_hostname = true
+  "telemetry": {
+    "dogstatsd_addr": "localhost:8125"
+    "disable_hostname": true
   },
   "domain": "$consul_domain"
 }
@@ -443,7 +443,7 @@ function run {
   local server_stabilization_time="$DEFAULT_AUTOPILOT_SERVER_STABILIZATION_TIME"
   local redundancy_zone_tag="$DEFAULT_AUTOPILOT_REDUNDANCY_ZONE_TAG"
   local disable_upgrade_migration="$DEFAULT_AUTOPILOT_DISABLE_UPGRADE_MIGRATION"
-  local consul_domain = "$DEFAULT_CONSUL_DOMAIN"
+  local consul_domain="$DEFAULT_CONSUL_DOMAIN"
 
   while [[ $# > 0 ]]; do
     local key="$1"
