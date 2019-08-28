@@ -577,7 +577,7 @@ function run {
       --domain)
         assert_not_empty "$key" "$2"
         consul_domain="$2"
-        
+        shift 
         ;;
       --help)
         print_usage
