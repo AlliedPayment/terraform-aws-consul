@@ -324,7 +324,11 @@ EOF
   $gossip_encryption_configuration
   $rpc_encryption_configuration
   $autopilot_configuration
-  "ui": $ui
+  "ui": $ui,
+  telemetry {
+    dogstatsd_addr  = "localhost:8125"
+    disable_hostname = true
+  }
 }
 EOF
 )
