@@ -329,7 +329,7 @@ EOF
   $autopilot_configuration
   "ui": $ui,
   "telemetry": {
-    "dogstatsd_addr": "localhost:8125"
+    "dogstatsd_addr": "localhost:8125",
     "disable_hostname": true
   },
   "domain": "$consul_domain"
@@ -337,6 +337,7 @@ EOF
 EOF
 )
   log_info "Installing Consul config file in $config_path"
+  echo "$default_config_json"
   echo "$default_config_json" | jq '.' > "$config_path"
   chown "$user:$user" "$config_path"
 }
@@ -576,7 +577,7 @@ function run {
       --domain)
         assert_not_empty "$key" "$2"
         consul_domain="$2"
-        shift
+        
         ;;
       --help)
         print_usage
